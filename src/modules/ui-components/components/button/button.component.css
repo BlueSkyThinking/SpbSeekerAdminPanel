@@ -10,6 +10,7 @@ button {
     color: var(--color-primary);
     transition: background-color 0.2s ease, color 0.2s ease;
     outline-color: var(--color-primary);
+    outline-width: 0.1rem;
 }
 
 button:hover {

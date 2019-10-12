@@ -3,6 +3,7 @@ import { ITravel } from '../../travel/interfaces/ITravel';
 import { Tab } from '../../navigation/enums/Tab';
 import { IPoint } from '../../points/interfaces/IPoint';
 import { IHint } from '../../hints/interfaces/IHint';
+import { HintAction } from '../../hints/enums/HintAction';
 
 function generateMockTravelList(numberOfItems: number): ITravel[] {
     return Array.from(Array(numberOfItems), (value, index) => ({
@@ -42,7 +43,7 @@ function generateMockHintList(numberOfItems: number): IHint[] {
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci blanditiis, consequatur dignissimos dolor dolorum eligendi',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci blanditiis, consequatur dignissimos dolor dolorum eligendi eos et excepturi facilis iste maiores necessitatibus nihil, obcaecati porro provident quae repudiandae, similique unde!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur cumque dolorem dolores dolorum ducimus eveniet excepturi facere fugit id itaque mollitia nesciunt placeat quas quidem quos temporibus, vel voluptas?',
-        hintAction: 'COMPASS',
+        hintAction: HintAction.COMPASS,
         imgUrl: '',
     }));
 }
