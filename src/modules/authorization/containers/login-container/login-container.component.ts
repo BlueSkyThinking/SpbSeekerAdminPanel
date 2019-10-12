@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
     styles: [],
 })
 export class LoginContainerComponent {
-    private loginParameters: ILoginParameters = {
+    public loginParameters: ILoginParameters = {
         login: '',
         password: '',
     };
