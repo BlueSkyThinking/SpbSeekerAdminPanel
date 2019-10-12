@@ -6,5 +6,5 @@ export class RemoveTravelAction implements Action {
 
     public readonly type = RemoveTravelAction.type;
 
-    constructor(public readonly travel: ITravel) {}
+    constructor(public readonly id: ITravel['id']) {}
 }

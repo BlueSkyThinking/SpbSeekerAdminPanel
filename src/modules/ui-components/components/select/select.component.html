@@ -1,12 +1,12 @@
 <div class="select-container" [ngClass]="class">
     <div
         class="title"
-        *ngIf="title"
+        *ngIf="label"
         [title]="tooltip"
         [class.selected]="isSelect"
         [style.fontSize.rem]="labelFontSize"
     >
-        {{ title }}
+        {{ label }}
     </div>
     <select
         (change)="handleChange($event)"

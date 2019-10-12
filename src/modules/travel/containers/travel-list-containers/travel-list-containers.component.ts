@@ -23,7 +23,7 @@ export class TravelListContainersComponent {
         this.travelList$ = this.store.pipe(select(getTravels));
     }
 
-    public handleRemove(value: ITravel) {
+    public handleRemove(value: ITravel['id']) {
         this.store.dispatch(new RemoveTravelAction(value));
     }
 }

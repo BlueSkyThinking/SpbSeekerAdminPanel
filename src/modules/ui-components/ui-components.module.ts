@@ -20,6 +20,8 @@ import { ColorSchemeComponent } from './components/color-scheme/color-scheme.com
 import { ModalFooterComponent } from './components/modal-footer/modal-footer.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { IconsModule } from '../icons/icons.module';
+import { TextareaComponent } from './components/textarea/textarea.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
     imports: [CommonModule, FormsModule, DialogModule, IconsModule],
@@ -40,6 +42,8 @@ import { IconsModule } from '../icons/icons.module';
         ColorSchemeComponent,
         ModalComponent,
         ModalFooterComponent,
+        TextareaComponent,
+        FileUploadComponent,
     ],
     exports: [
         BlockComponent,
@@ -58,6 +62,8 @@ import { IconsModule } from '../icons/icons.module';
         ColorSchemeComponent,
         ModalComponent,
         ModalFooterComponent,
+        TextareaComponent,
+        FileUploadComponent,
     ],
 })
 export class UiComponentsModule {}

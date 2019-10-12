@@ -10,7 +10,7 @@ import { Position } from '../../enums/Position';
 export class SelectComponent {
     @Input() options: ISelectOption[];
     @Input() value: string;
-    @Input() title: string;
+    @Input() label: string;
     @Input() tooltip = '';
     @Input() filled: boolean;
     @Input() disabled: boolean;
@@ -26,16 +26,16 @@ export class SelectComponent {
         this.isSelect = false;
     }
 
-    handleChange(event: Event) {
+    public handleChange(event: Event): void {
         this.onselect.emit((event.target as HTMLSelectElement).value);
         (event.target as HTMLSelectElement).value = this.value;
     }
 
-    toggleSelect(): void {
+    public toggleSelect(): void {
         this.isSelect = !this.isSelect;
     }
 
-    get class() {
+    public get class() {
         return `title-${this.titlePosition}`;
     }
 }

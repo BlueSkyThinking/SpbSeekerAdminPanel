@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
     selector: 'skr-admin-panel-layout',
     template: `
         <skr-block class="content">
+            <skr-add-travel-container></skr-add-travel-container>
             <skr-travel-list-containers></skr-travel-list-containers>
         </skr-block>
     `,

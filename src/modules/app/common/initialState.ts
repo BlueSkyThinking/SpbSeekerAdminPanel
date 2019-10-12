@@ -17,4 +17,14 @@ function generateMockTravelList(numberOfItems: number): ITravel[] {
 export const initialState: IAppState = {
     user: null,
     travels: generateMockTravelList(10),
+    categories: [
+        {
+            id: 1,
+            name: 'Architecture',
+        },
+        {
+            id: 2,
+            name: 'Eat',
+        },
+    ],
 };

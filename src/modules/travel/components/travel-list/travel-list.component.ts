@@ -7,7 +7,7 @@ import { ITravel } from '../../interfaces/ITravel';
         <skr-travel-list-item
             *ngFor="let travelItem of travelList"
             [travelItem]="travelItem"
-            (remove)="handleRemove(travelItem)"
+            (remove)="handleRemove(travelItem.id)"
         ></skr-travel-list-item>
     `,
     styles: [],
@@ -15,9 +15,9 @@ import { ITravel } from '../../interfaces/ITravel';
 export class TravelListComponent {
     @Input() public travelList: ITravel[];
 
-    @Output() public remove: EventEmitter<ITravel> = new EventEmitter();
+    @Output() public remove: EventEmitter<ITravel['id']> = new EventEmitter();
 
-    public handleRemove(value: ITravel): void {
+    public handleRemove(value: ITravel['id']): void {
         this.remove.emit(value);
     }
 }

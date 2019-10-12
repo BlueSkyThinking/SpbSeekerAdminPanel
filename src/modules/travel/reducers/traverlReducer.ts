@@ -1,7 +1,8 @@
 import { initialState } from '../../app/common/initialState';
 import { RemoveTravelAction } from '../actions/RemoveTravelAction';
+import { SetCategoriesAction } from '../actions/SetCategoriesAction';
 
-type Actions = RemoveTravelAction;
+type Actions = RemoveTravelAction | SetCategoriesAction;
 
 export function travelReducer(state = initialState, action: Actions) {
     switch (action.type) {
@@ -9,8 +10,15 @@ export function travelReducer(state = initialState, action: Actions) {
             return {
                 ...state,
                 travels: state.travels.filter(
-                    travel => travel.id === action.travel.id
+                    travel => travel.id !== action.id
                 ),
+            };
+        }
+
+        case SetCategoriesAction.type: {
+            return {
+                ...state,
+                categories: action.categories,
             };
         }
 
