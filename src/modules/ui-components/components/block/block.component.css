@@ -1,8 +1,0 @@
-.block {
-    background: var(--color-surface);
-    border: 0.1rem solid var(--color-border);
-    border-radius: 0.2rem;
-    width: max-content;
-    height: 100%;
-    position: relative;
-}

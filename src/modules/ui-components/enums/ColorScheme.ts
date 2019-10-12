@@ -1,5 +1,5 @@
 export enum ColorScheme {
-    light = 'orange',
+    light = 'light',
     blue = 'blue',
     dark = 'dark',
 }

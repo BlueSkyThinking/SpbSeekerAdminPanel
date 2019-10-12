@@ -1,13 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 html {
     font-size: 62.5%;
+    height: 100%;
 }
 
 body {
     margin: 0;
     font-size: 1.4rem;
+    height: 100%;
 }
 
 .ui-dialog-mask {
     background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+* {
+    box-sizing: border-box;
 }

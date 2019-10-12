@@ -9,7 +9,6 @@ export class ButtonComponent {
     @Input() disabled: boolean;
     @Input() type: '' | 'bordered' | 'accent' = '';
     @Input() tooltip = '';
-    @Input() height = 24;
 
     @Output() onclick: EventEmitter<Event>;
 

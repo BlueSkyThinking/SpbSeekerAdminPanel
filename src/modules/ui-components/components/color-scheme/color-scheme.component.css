@@ -1,6 +1,10 @@
 .color-scheme {
     display: contents;
-    background-color: var(--color-surface);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     --color-key-0: #000000;
     --color-key-1: #111111;
@@ -54,7 +58,7 @@
 
     --color-primary-shadow-hover: rgba(210, 99, 0, 0.4);
 
-    --color-background: var(--color-key-f);
+    --color-background: #e5e5e5;
     --color-toggle-background: var(--color-key-e);
 
     --color-surface: var(--color-key-f);

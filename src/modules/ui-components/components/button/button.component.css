@@ -1,6 +1,6 @@
 button {
-    width: max-content;
-    min-width: 6.4rem;
+    height: inherit;
+    width: inherit;
     font-size: 1.4rem;
     text-align: center;
     background: none;

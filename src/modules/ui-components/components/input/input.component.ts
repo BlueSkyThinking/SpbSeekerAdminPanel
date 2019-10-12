@@ -3,7 +3,25 @@ import { InputType } from '../../enums/InputType';
 
 @Component({
     selector: 'skr-input',
-    templateUrl: './input.component.html',
+    template: `
+        <div [class.selected]="isSelect" [title]="tooltip">
+            <div class="title" *ngIf="label">{{ label }}</div>
+            <div class="container">
+                <input
+                    [value]="value"
+                    [type]="type"
+                    [min]="min"
+                    [max]="max"
+                    [step]="step"
+                    [disabled]="disabled"
+                    (focus)="toggleSelect()"
+                    (blur)="toggleSelect()"
+                    (change)="handleChange($event)"
+                    (input)="handleInput($event)"
+                />
+            </div>
+        </div>
+    `,
     styleUrls: ['./input.component.css'],
 })
 export class InputComponent {
@@ -11,7 +29,7 @@ export class InputComponent {
     @Input() min: number;
     @Input() max: number;
     @Input() step: number;
-    @Input() title: string;
+    @Input() label: string;
     @Input() value: string;
     @Input() tooltip = '';
     @Input() disabled: boolean;
