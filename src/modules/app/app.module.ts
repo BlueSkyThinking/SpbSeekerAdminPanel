@@ -14,6 +14,7 @@ import { environment } from '../../environments/environment';
 import { TravelModule } from '../travel/travel.module';
 import { NavigationModule } from '../navigation/navigation.module';
 import { AdminPanelLayoutContainerComponent } from './containers/admin-panel-layout-container/admin-panel-layout-container.component';
+import { PointsModule } from '../points/points.module';
 
 @NgModule({
     imports: [
@@ -28,6 +29,7 @@ import { AdminPanelLayoutContainerComponent } from './containers/admin-panel-lay
         AuthorizationModule,
         TravelModule,
         NavigationModule,
+        PointsModule,
     ],
     declarations: [
         AppComponent,

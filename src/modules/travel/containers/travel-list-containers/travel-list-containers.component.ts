@@ -9,10 +9,11 @@ import { RemoveTravelAction } from '../../actions/RemoveTravelAction';
 @Component({
     selector: 'skr-travel-list-containers',
     template: `
-        <skr-travel-list
-            [travelList]="travelList$ | async"
-            (remove)="handleRemove($event)"
-        ></skr-travel-list>
+        <skr-travel-list-item
+            *ngFor="let travelItem of travelList$ | async"
+            [travelItem]="travelItem"
+            (remove)="handleRemove(travelItem.id)"
+        ></skr-travel-list-item>
     `,
     styles: [],
 })
