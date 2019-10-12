@@ -4,7 +4,9 @@ import { Component } from '@angular/core';
     selector: 'skr-root',
     template: `
         <skr-color-scheme [theme]="'light'">
-            <skr-layout></skr-layout>
+            <skr-notification-container>
+                <skr-layout></skr-layout>
+            </skr-notification-container>
         </skr-color-scheme>
     `,
     styles: [``],

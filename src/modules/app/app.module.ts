@@ -17,6 +17,7 @@ import { AdminPanelLayoutContainerComponent } from './containers/admin-panel-lay
 import { PointsModule } from '../points/points.module';
 import { CategoryModule } from '../category/category.module';
 import { HintsModule } from '../hints/hints.module';
+import { NotificationModule } from '../notification/notification.module';
 
 @NgModule({
     imports: [
@@ -34,6 +35,7 @@ import { HintsModule } from '../hints/hints.module';
         PointsModule,
         CategoryModule,
         HintsModule,
+        NotificationModule,
     ],
     declarations: [
         AppComponent,
