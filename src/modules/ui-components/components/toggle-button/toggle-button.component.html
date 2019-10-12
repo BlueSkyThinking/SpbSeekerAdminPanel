@@ -1,0 +1,15 @@
+<div class="toggle" [class.disabled]="disabled" (click)="handleClick()">
+    <div class="states">
+        <div class="state" [class.active]="!pressed" #state>
+            {{ firstState }}
+        </div>
+
+        <div class="state" [class.active]="pressed">{{ secondState }}</div>
+        <div
+            class="slider"
+            [class.toggled]="pressed"
+            [style.width.px]="stateElement.nativeElement.clientWidth"
+            #slider
+        ></div>
+    </div>
+</div>

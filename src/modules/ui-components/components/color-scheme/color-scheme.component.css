@@ -1,0 +1,195 @@
+.color-scheme {
+    display: contents;
+    background-color: var(--color-surface);
+
+    --color-key-0: #000000;
+    --color-key-1: #111111;
+    --color-key-2: #222222;
+    --color-key-3: #333333;
+    --color-key-4: #444444;
+    --color-key-5: #555555;
+    --color-key-6: #666666;
+    --color-key-7: #777777;
+    --color-key-8: #888888;
+    --color-key-9: #999999;
+    --color-key-a: #aaaaaa;
+    --color-key-b: #bbbbbb;
+    --color-key-c: #cccccc;
+    --color-key-d: #dddddd;
+    --color-key-e: #eeeeee;
+    --color-key-f: #ffffff;
+
+    --color-accent-1: #1a98c0;
+    --color-accent-2: #18c198;
+
+    --color-on-surface-secondary: #82939a;
+    --color-on-bordered-button-text: var(--color-key-0);
+
+    --color-on-surface: rgba(204, 204, 204, 0.3);
+
+    --color-remove-text: #cc0000;
+
+    --color-scroll: #ebebeb;
+    --color-scroll-hover: #d6d6d6;
+
+    --color-big-shadow: rgba(0, 0, 0, 0.25);
+    --color-small-shadow: rgba(0, 0, 0, 0.1);
+    --color-button-shadow: rgba(0, 0, 0, 0.25);
+
+    --slider-button-border: var(--color-key-f);
+
+    --chart-grid-gap: 0.8rem;
+    --chart-axis-title-size: 1.6rem;
+    --chart-axis-size: 1.6rem;
+    --heatmap-legend-size: 2rem;
+    --heatmap-labels: 5rem;
+}
+
+.color-scheme__light {
+    --color-primary: #eb780a;
+    --color-primary-hover: #ff8934;
+    --color-primary-focus: #db6b00;
+
+    --color-disable: #ebebeb;
+
+    --color-primary-shadow-hover: rgba(210, 99, 0, 0.4);
+
+    --color-background: var(--color-key-f);
+    --color-toggle-background: var(--color-key-e);
+
+    --color-surface: var(--color-key-f);
+
+    --color-on-primary-text: var(--color-key-f);
+    --color-on-surface-text: var(--color-key-0);
+
+    --color-border: #ebebeb;
+
+    --color-text-button-hover: #fbe4ce;
+    --color-text-button-focus: #fed4ac;
+
+    --color-checkbox: var(--color-key-0);
+    --color-checkbox-disable: var(--color-key-c);
+
+    --color-select-filled: #ebebeb;
+
+    --color-timestamp-panel-label: rgba(235, 120, 10, 0.1);
+    --color-timestamp-active: var(--color-key-f);
+
+    --color-timestamp-editor-head-text: var(--color-key-0);
+    --color-timestamp-header-shadow: #f0f0f0;
+    --color-timestamp-editor-header: #eff0f2;
+    --color-timestamp-editor-column-hover: rgba(235, 120, 10, 0.2);
+    --color-timeseries-editor-header-background: rgba(153, 153, 153, 0.2);
+
+    --color-dropdown-item: var(--color-key-f);
+    --color-dropdown-item-hover: var(--color-key-e);
+
+    --color-modal-header: #ebebeb;
+}
+
+.color-scheme__blue {
+    --color-primary: #2b6984;
+    --color-primary-hover: #3286aa;
+    --color-primary-focus: #215c76;
+
+    --color-disable: #ecf1f7;
+
+    --color-primary-shadow-hover: rgba(43, 105, 132, 0.4);
+
+    --color-background: var(--color-key-f);
+    --color-toggle-background: #ecf1f7;
+
+    --color-surface: var(--color-key-f);
+
+    --color-on-primary-text: var(--color-key-f);
+    --color-on-surface-text: var(--color-key-0);
+
+    --color-border: #ebebeb;
+
+    --color-text-button-hover: #d7e8ef;
+    --color-text-button-focus: #afd1e0;
+
+    --color-checkbox: var(--color-primary);
+    --color-checkbox-disable: #82939a;
+
+    --color-select-filled: #ecf1f7;
+
+    --color-timestamp-panel-label: #d7e8ef;
+    --color-timestamp-active: var(--color-key-f);
+
+    --color-timestamp-editor-head-text: var(--color-key-0);
+    --color-timestamp-header-shadow: #f0f0f0;
+    --color-timestamp-editor-header: #eff0f2;
+    --color-timestamp-editor-column-hover: #d7e8ef;
+    --color-timeseries-editor-header-background: #f4f7fb;
+
+    --color-dropdown-item: var(--color-key-f);
+    --color-dropdown-item-hover: var(--color-key-e);
+
+    --color-modal-header: #ecf1f7;
+}
+
+.color-scheme__dark {
+    --color-primary: #eb780a;
+    --color-primary-hover: #ff8934;
+    --color-primary-focus: #db6b00;
+
+    --color-disable: #ebebeb;
+
+    --color-primary-shadow-hover: rgba(210, 99, 0, 0.4);
+
+    --color-background: #1d1d1d;
+    --color-toggle-background: rgba(153, 153, 153, 0.2);
+
+    --color-surface: var(--color-key-3);
+
+    --color-on-primary-text: var(--color-key-0);
+    --color-on-surface-text: var(--color-key-f);
+    --color-remove-text: var(--color-key-f);
+
+    --color-border: #616161;
+
+    --color-text-button-hover: #634223;
+    --color-text-button-focus: #7f4d1e;
+
+    --color-checkbox: var(--color-key-f);
+    --color-checkbox-disable: var(--color-key-9);
+
+    --color-select-filled: #616161;
+
+    --color-timestamp-panel-label: rgba(235, 120, 10, 0.1);
+    --color-timestamp-active: var(--color-key-f);
+
+    --color-timestamp-header-shadow: #4c4c54;
+    --color-timestamp-editor-header: #424242;
+    --color-timestamp-editor-head-text: var(--color-key-9);
+    --color-timestamp-editor-column-hover: #424242;
+    --color-timeseries-editor-header-background: rgba(153, 153, 153, 0.2);
+
+    --color-dropdown-item: #616161;
+    --color-dropdown-item-hover: rgba(153, 153, 153, 0.3);
+
+    --color-modal-header: #454545;
+}
+
+.color-scheme ::-webkit-scrollbar {
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+.color-scheme ::-webkit-scrollbar-thumb {
+    border: 0.4rem solid transparent;
+    border-radius: 1rem;
+    background-color: var(--color-scroll);
+    background-clip: content-box;
+}
+
+.color-scheme ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scroll-hover);
+}
+
+.tse-notification {
+    position: absolute;
+    right: 1.6rem;
+    bottom: 1.6rem;
+}

@@ -1,0 +1,54 @@
+.toggle {
+    position: relative;
+    background-color: var(--color-toggle-background);
+    height: 3.2rem;
+    width: max-content;
+    font-size: 1.2rem;
+    border-radius: 8.5rem;
+    user-select: none;
+}
+
+.toggle:not(.disabled):hover .state:not(.active) {
+    color: var(--color-primary);
+}
+
+.disabled .slider {
+    background-color: var(--color-key-9);
+}
+
+.states {
+    display: grid;
+    width: max-content;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    height: 100%;
+}
+
+.state {
+    padding: 0.2rem 1.2rem;
+    margin: auto 0;
+    z-index: 1;
+    color: var(--color-on-surface-secondary);
+    width: 100%;
+    text-align: center;
+}
+
+.state.active {
+    color: var(--color-background);
+}
+
+.slider {
+    background-color: var(--color-primary);
+    position: absolute;
+    margin: 0.2rem 0.2rem;
+    top: 0;
+    left: 0;
+    height: 2.8rem;
+    z-index: 0;
+    border-radius: 8.5rem;
+    transition: transform 0.4s, margin 0.1s;
+}
+
+.slider.toggled {
+    margin: 0.2rem -0.2rem;
+}

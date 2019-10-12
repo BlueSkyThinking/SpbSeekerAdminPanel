@@ -1,0 +1,11 @@
+<div class="grid">
+    <div
+        class="wrapper"
+        *ngFor="let color of colors"
+        [class.active]="color === selectedColor"
+        (click)="selectColor(color)"
+    >
+        <div class="item" [style.backgroundColor]="color"></div>
+        <div class="layer"></div>
+    </div>
+</div>

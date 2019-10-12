@@ -1,0 +1,64 @@
+:host /deep/ .ui-dialog {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem 0.3rem 0.2rem 0.2rem;
+}
+
+:host /deep/ .ui-dialog-title {
+    font-size: 1.4rem !important;
+    font-weight: normal !important;
+    line-height: 1.7rem;
+    vertical-align: sub;
+    display: inline-block;
+}
+
+:host /deep/ .ui-dialog-titlebar {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    height: 3.2rem;
+    padding: 0 !important;
+    border: none !important;
+    background-color: var(--color-modal-header) !important;
+    color: var(--color-on-surface-text) !important;
+}
+
+:host /deep/ .ui-dialog-content {
+    border: none !important;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    padding: 1.6rem !important;
+    height: 100%;
+    overflow: visible;
+    color: var(--color-on-surface-text) !important;
+    background-color: var(--color-surface) !important;
+}
+
+.header-actions {
+    height: 1.6rem;
+    width: 1.6rem;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.modal-grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr auto;
+}
+
+.actions {
+    display: grid;
+    grid-gap: 0.8rem;
+    grid-auto-flow: column;
+    width: fit-content;
+    justify-self: end;
+}
+
+.close-button {
+    color: var(--color-on-surface-secondary);
+}

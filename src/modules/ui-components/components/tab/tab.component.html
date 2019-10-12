@@ -1,0 +1,9 @@
+<div
+    class="tab"
+    [class.active]="active"
+    [class.disabled]="disabled"
+    (click)="handleClick()"
+>
+    <div class="content"><ng-content></ng-content></div>
+    <div class="border" *ngIf="active"></div>
+</div>

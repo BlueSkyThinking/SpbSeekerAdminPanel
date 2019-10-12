@@ -1,0 +1,27 @@
+<div class="select-container" [ngClass]="class">
+    <div
+        class="title"
+        *ngIf="title"
+        [title]="tooltip"
+        [class.selected]="isSelect"
+        [style.fontSize.rem]="labelFontSize"
+    >
+        {{ title }}
+    </div>
+    <select
+        (change)="handleChange($event)"
+        (focus)="toggleSelect()"
+        (blur)="toggleSelect()"
+        [class.filled]="filled"
+        [disabled]="disabled"
+        [title]="tooltip"
+        [value]="value"
+    >
+        <option
+            *ngFor="let option of options"
+            [value]="option.value"
+            [selected]="option.value === value"
+            >{{ option.caption }}</option
+        >
+    </select>
+</div>
