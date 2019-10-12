@@ -19,7 +19,13 @@ import { getActiveTab } from '../../../navigation/selectors/getActiveTab';
                     <skr-add-point-container></skr-add-point-container>
                     <skr-point-list-container></skr-point-list-container>
                 </div>
-                <div *ngSwitchCase="tab.HINTS"></div>
+                <div *ngSwitchCase="tab.HINTS">
+                    <skr-hint-list-container></skr-hint-list-container>
+                </div>
+                <div *ngSwitchCase="tab.CATEGORIES">
+                    <skr-add-category-container></skr-add-category-container>
+                    <skr-category-list-container></skr-category-list-container>
+                </div>
             </div>
         </skr-block>
     `,

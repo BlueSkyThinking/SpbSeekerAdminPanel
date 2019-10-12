@@ -24,6 +24,12 @@ import { Tab } from '../../enums/Tab';
                 >
                     Hints
                 </skr-tab>
+                <skr-tab
+                    [active]="activeTab === tab.CATEGORIES"
+                    (onselect)="handleSelect(tab.CATEGORIES)"
+                >
+                    Categories
+                </skr-tab>
             </div>
         </div>
     `,

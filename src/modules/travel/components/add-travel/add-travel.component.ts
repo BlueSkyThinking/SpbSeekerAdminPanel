@@ -7,7 +7,7 @@ import {
     SimpleChanges,
 } from '@angular/core';
 import { IAddTravelParameters } from '../../interfaces/IAddTravelParameters';
-import { ICategory } from '../../interfaces/ICategory';
+import { ICategory } from '../../../category/interfaces/ICategory';
 import { ISelectOption } from '../../../ui-components/types/ISelectOption';
 
 @Component({

@@ -3,9 +3,9 @@ import { IAddTravelParameters } from '../../interfaces/IAddTravelParameters';
 import { IRootState } from '../../../app/interfaces/IRootState';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { ICategory } from '../../interfaces/ICategory';
-import { getCategories } from '../../selectors/getCategories';
+import { ICategory } from '../../../category/interfaces/ICategory';
 import { tap } from 'rxjs/operators';
+import { getCategories } from '../../../category/selectors/getCategories';
 
 @Component({
     selector: 'skr-add-travel-container',

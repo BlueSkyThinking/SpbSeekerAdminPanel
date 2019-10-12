@@ -15,6 +15,8 @@ import { TravelModule } from '../travel/travel.module';
 import { NavigationModule } from '../navigation/navigation.module';
 import { AdminPanelLayoutContainerComponent } from './containers/admin-panel-layout-container/admin-panel-layout-container.component';
 import { PointsModule } from '../points/points.module';
+import { CategoryModule } from '../category/category.module';
+import { HintsModule } from '../hints/hints.module';
 
 @NgModule({
     imports: [
@@ -30,6 +32,8 @@ import { PointsModule } from '../points/points.module';
         TravelModule,
         NavigationModule,
         PointsModule,
+        CategoryModule,
+        HintsModule,
     ],
     declarations: [
         AppComponent,
