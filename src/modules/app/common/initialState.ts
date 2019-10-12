@@ -1,5 +1,6 @@
 import { IAppState } from '../interfaces/IAppState';
 import { ITravel } from '../../travel/interfaces/ITravel';
+import { Tab } from '../../navigation/enums/Tab';
 
 function generateMockTravelList(numberOfItems: number): ITravel[] {
     return Array.from(Array(numberOfItems), (value, index) => ({
@@ -15,7 +16,7 @@ function generateMockTravelList(numberOfItems: number): ITravel[] {
 }
 
 export const initialState: IAppState = {
-    user: null,
+    activeTab: Tab.TRAVEL,
     travels: generateMockTravelList(10),
     categories: [
         {
@@ -27,4 +28,5 @@ export const initialState: IAppState = {
             name: 'Eat',
         },
     ],
+    user: null,
 };

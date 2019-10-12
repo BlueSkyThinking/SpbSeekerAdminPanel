@@ -11,11 +11,11 @@ import { StoreModule } from '@ngrx/store';
 import { globalReducer } from './reducers/globalReducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
-import { AdminPanelLayoutComponent } from './components/admin-panel-layout/admin-panel-layout.component';
 import { TravelModule } from '../travel/travel.module';
+import { NavigationModule } from '../navigation/navigation.module';
+import { AdminPanelLayoutContainerComponent } from './containers/admin-panel-layout-container/admin-panel-layout-container.component';
 
 @NgModule({
-    declarations: [AppComponent, LayoutComponent, AdminPanelLayoutComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -27,6 +27,12 @@ import { TravelModule } from '../travel/travel.module';
         UiComponentsModule,
         AuthorizationModule,
         TravelModule,
+        NavigationModule,
+    ],
+    declarations: [
+        AppComponent,
+        LayoutComponent,
+        AdminPanelLayoutContainerComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
