@@ -46,7 +46,9 @@ export class AddTravelContainerComponent implements OnDestroy {
         this.addTravelParameters = value;
     }
 
-    public handleCreate(): void {}
+    public handleCreate(): void {
+        console.log(this.addTravelParameters);
+    }
 
     public ngOnDestroy(): void {
         this.categorySubscription.unsubscribe();
