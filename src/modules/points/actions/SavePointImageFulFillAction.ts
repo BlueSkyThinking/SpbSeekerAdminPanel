@@ -1,10 +1,10 @@
 import { Action } from '@ngrx/store';
 import { IPointParameters } from '../interfaces/IPointParameters';
 
-export class SavePointImageFulFill implements Action {
+export class SavePointImageFulFillAction implements Action {
     public static readonly type = '[Point] Save point image fulfilled';
 
-    public readonly type = SavePointImageFulFill.type;
+    public readonly type = SavePointImageFulFillAction.type;
 
     constructor(
         public readonly payload: {

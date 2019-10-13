@@ -13,6 +13,9 @@ import { RejectRemoveTravel } from '../actions/RejectRemoveTravel';
 import { SaveTravelAction } from '../actions/SaveTravelAction';
 import { RejectSaveTravelAction } from '../actions/RejectSaveTravelAction';
 import { AddTravelAction } from '../actions/AddTravelAction';
+import { SaveTravelImageFulFilledAction } from '../actions/SaveTravelImageFulFilledAction';
+import { ApiImageService } from '../../api/services/api-image.service';
+import { RejectRemovePointAction } from '../../points/actions/RejectRemovePointAction';
 
 @Injectable()
 export class TravelEffects {
@@ -50,22 +53,56 @@ export class TravelEffects {
         )
     );
 
+    public saveImage$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType<SaveTravelImageFulFilledAction>(
+                SaveTravelImageFulFilledAction.type
+            ),
+            switchMap(action =>
+                this.apiTravelEndpointService
+                    .save(
+                        action.payload.travelParameters,
+                        action.payload.imageUrl
+                    )
+                    .pipe(
+                        map(travel => {
+                            this.notificationService.success(
+                                'Travel successfully added'
+                            );
+                            return new AddTravelAction(travel);
+                        }),
+                        catchError(() => {
+                            this.notificationService.error(
+                                'Failed to save travel'
+                            );
+                            return of(new RejectSaveTravelAction());
+                        })
+                    )
+            )
+        )
+    );
+
     public saveTravel$ = createEffect(() =>
         this.actions$.pipe(
             ofType<SaveTravelAction>(SaveTravelAction.type),
             switchMap(action =>
-                this.apiTravelEndpointService.save(action.parameters).pipe(
-                    map(travel => {
-                        this.notificationService.success(
-                            'Travel successfully added'
-                        );
-                        return new AddTravelAction(travel);
-                    }),
-                    catchError(() => {
-                        this.notificationService.error('Failed to save travel');
-                        return of(new RejectSaveTravelAction());
-                    })
-                )
+                this.apiImageEndpointService
+                    .uploadImage(action.parameters.imgUrl)
+                    .pipe(
+                        map(
+                            url =>
+                                new SaveTravelImageFulFilledAction({
+                                    travelParameters: action.parameters,
+                                    imageUrl: url,
+                                })
+                        ),
+                        catchError(() => {
+                            this.notificationService.error(
+                                'Failed to remove point'
+                            );
+                            return of(new RejectSaveTravelAction());
+                        })
+                    )
             )
         )
     );
@@ -73,6 +110,7 @@ export class TravelEffects {
     constructor(
         private readonly actions$: Actions,
         private readonly apiTravelEndpointService: ApiTravelService,
+        private readonly apiImageEndpointService: ApiImageService,
         private readonly notificationService: NotificationService
     ) {}
 }

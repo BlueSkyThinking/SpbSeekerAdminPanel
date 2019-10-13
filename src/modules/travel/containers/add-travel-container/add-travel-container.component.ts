@@ -34,7 +34,7 @@ export class AddTravelContainerComponent implements OnDestroy {
                     this.categories = categories;
                     this.addTravelParameters = {
                         name: '',
-                        imgUrl: '',
+                        imgUrl: [],
                         description: '',
                         categoryId: String(categories[0].id),
                     };

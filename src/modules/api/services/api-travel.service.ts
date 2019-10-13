@@ -16,8 +16,14 @@ export class ApiTravelService {
         return this.httpClient.get<ITravel[]>(this.path);
     }
 
-    public save(travelParameters: ITravelParameters): Observable<ITravel> {
-        return this.httpClient.post<ITravel>(this.path, travelParameters);
+    public save(
+        travelParameters: ITravelParameters,
+        imageUrl: string
+    ): Observable<ITravel> {
+        return this.httpClient.post<ITravel>(this.path, {
+            ...travelParameters,
+            imgUrl: imageUrl,
+        });
     }
 
     public remove(id: ITravel['id']) {

@@ -14,7 +14,7 @@ import { AddPointAction } from '../actions/AddPointAction';
 import { SavePointAction } from '../actions/SavePointAction';
 import { RejectSavePointAction } from '../actions/RejectSavePointAction';
 import { ApiImageService } from '../../api/services/api-image.service';
-import { SavePointImageFulFill } from '../actions/SaveImageFulFill';
+import { SavePointImageFulFillAction } from '../actions/SavePointImageFulFillAction';
 
 @Injectable()
 export class PointEffects {
@@ -42,7 +42,7 @@ export class PointEffects {
                     .pipe(
                         map(
                             imageUrl =>
-                                new SavePointImageFulFill({
+                                new SavePointImageFulFillAction({
                                     pointParameters: action.point,
                                     imageUrl,
                                 })
@@ -60,7 +60,9 @@ export class PointEffects {
 
     public savePoint$ = createEffect(() =>
         this.actions$.pipe(
-            ofType<SavePointImageFulFill>(SavePointImageFulFill.type),
+            ofType<SavePointImageFulFillAction>(
+                SavePointImageFulFillAction.type
+            ),
             switchMap(action =>
                 this.apiEndpointPointService
                     .save(
