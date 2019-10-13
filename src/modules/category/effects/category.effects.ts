@@ -10,6 +10,9 @@ import { RejectLoadCategoriesAction } from '../actions/RejectLoadCategoriesActio
 import { TryToRemoveCategoryAction } from '../actions/TryToRemoveCategoryAction';
 import { RemoveCategoryAction } from '../actions/RemoveCategoryAction';
 import { RejectRemoveCategoryAction } from '../actions/RejectRemoveCategoryAction';
+import { SaveCategoryAction } from '../actions/SaveCategoryAction';
+import { AddCategoryAction } from '../actions/AddCategoryAction';
+import { RejectSaveCategoryAction } from '../actions/RejectSaveCategoryAction';
 
 @Injectable()
 export class CategoryEffects {
@@ -24,6 +27,28 @@ export class CategoryEffects {
                             'Failed to load categories'
                         );
                         return of(new RejectLoadCategoriesAction());
+                    })
+                )
+            )
+        )
+    );
+
+    public saveCategory$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType<SaveCategoryAction>(SaveCategoryAction.type),
+            switchMap(action =>
+                this.apiEndpointCategoryService.save(action.parameters).pipe(
+                    map(category => {
+                        this.notificationService.success(
+                            'Category successfully added'
+                        );
+                        return new AddCategoryAction(category);
+                    }),
+                    catchError(() => {
+                        this.notificationService.error(
+                            'Failed to save category'
+                        );
+                        return of(new RejectSaveCategoryAction());
                     })
                 )
             )

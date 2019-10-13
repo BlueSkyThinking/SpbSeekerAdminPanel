@@ -1,8 +1,9 @@
 import { initialState } from '../../app/common/initialState';
 import { RemoveTravelAction } from '../actions/RemoveTravelAction';
 import { SetTravelsAction } from '../actions/SetTravelsAction';
+import { AddTravelAction } from '../actions/AddTravelAction';
 
-type Actions = SetTravelsAction | RemoveTravelAction;
+type Actions = SetTravelsAction | RemoveTravelAction | AddTravelAction;
 
 export function travelReducer(state = initialState, action: Actions) {
     switch (action.type) {
@@ -10,6 +11,13 @@ export function travelReducer(state = initialState, action: Actions) {
             return {
                 ...state,
                 travels: action.travels,
+            };
+        }
+
+        case AddTravelAction.type: {
+            return {
+                ...state,
+                travels: [...state.travels, action.travel],
             };
         }
 

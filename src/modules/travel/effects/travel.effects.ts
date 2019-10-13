@@ -10,6 +10,9 @@ import { RejectLoadTravelsAction } from '../actions/RejectLoadTravelsAction';
 import { TryToRemoveTravelAction } from '../actions/TryToRemoveTravelAction';
 import { RemoveTravelAction } from '../actions/RemoveTravelAction';
 import { RejectRemoveTravel } from '../actions/RejectRemoveTravel';
+import { SaveTravelAction } from '../actions/SaveTravelAction';
+import { RejectSaveTravelAction } from '../actions/RejectSaveTravelAction';
+import { AddTravelAction } from '../actions/AddTravelAction';
 
 @Injectable()
 export class TravelEffects {
@@ -41,6 +44,26 @@ export class TravelEffects {
                             'Failed to remove travel'
                         );
                         return of(new RejectRemoveTravel());
+                    })
+                )
+            )
+        )
+    );
+
+    public saveTravel$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType<SaveTravelAction>(SaveTravelAction.type),
+            switchMap(action =>
+                this.apiTravelEndpointService.save(action.parameters).pipe(
+                    map(travel => {
+                        this.notificationService.success(
+                            'Travel successfully added'
+                        );
+                        return new AddTravelAction(travel);
+                    }),
+                    catchError(() => {
+                        this.notificationService.error('Failed to save travel');
+                        return of(new RejectSaveTravelAction());
                     })
                 )
             )

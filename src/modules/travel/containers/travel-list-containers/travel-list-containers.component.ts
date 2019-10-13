@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { getTravels } from '../../selectors/getTravels';
 import { TryToRemoveTravelAction } from '../../actions/TryToRemoveTravelAction';
 import { LoadTravelsAction } from '../../actions/LoadTravelsAction';
+import { LoadCategoriesAction } from '../../../category/actions/LoadCategoriesAction';
 
 @Component({
     selector: 'skr-travel-list-containers',
@@ -26,6 +27,7 @@ export class TravelListContainersComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.store.dispatch(new LoadCategoriesAction());
         this.store.dispatch(new LoadTravelsAction());
     }
 

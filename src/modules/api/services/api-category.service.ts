@@ -16,8 +16,10 @@ export class ApiCategoryService {
         return this.httpClient.get<ICategory[]>(this.path);
     }
 
-    public getSave(categoryParameters: ICategoryParameters) {
-        return this.httpClient.post(this.path, categoryParameters);
+    public save(
+        categoryParameters: ICategoryParameters
+    ): Observable<ICategory> {
+        return this.httpClient.post<ICategory>(this.path, categoryParameters);
     }
 
     public remove(id: ICategory['id']) {

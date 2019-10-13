@@ -1,6 +1,6 @@
 export interface ITravelParameters {
     name: string;
-    imageFile: File;
+    imgUrl: string;
     description: string;
     categoryId: string;
 }

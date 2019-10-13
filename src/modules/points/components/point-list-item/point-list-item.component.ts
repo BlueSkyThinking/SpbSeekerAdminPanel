@@ -15,6 +15,7 @@ import { IPoint } from '../../interfaces/IPoint';
                 <div class="coordinates">
                     <div>Latitude: {{ point.latitude }}</div>
                     <div>Longitude: {{ point.longitude }}</div>
+                    <div>Order: {{ point.orderNum }}</div>
                 </div>
                 <div class="content-footer">
                     <div class="created-date">

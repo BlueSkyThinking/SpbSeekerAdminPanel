@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IHintParameters } from '../../interfaces/IHintParameters';
 import { HintAction } from '../../enums/HintAction';
+import { IRootState } from '../../../app/interfaces/IRootState';
+import { Store } from '@ngrx/store';
+import { SaveHintAction } from '../../actions/SaveHintAction';
 
 @Component({
     selector: 'skr-add-hint-parameters-container',
@@ -22,11 +25,13 @@ export class AddHintParametersContainerComponent {
         imgUrl: '',
     };
 
+    constructor(private readonly store: Store<IRootState>) {}
+
     public handleChangePointParameters(value: IHintParameters): void {
         this.hintParameters = value;
     }
 
     public handleCreate(): void {
-        console.log(this.hintParameters);
+        this.store.dispatch(new SaveHintAction(this.hintParameters));
     }
 }

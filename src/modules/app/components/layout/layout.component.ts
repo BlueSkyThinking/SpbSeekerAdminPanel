@@ -10,6 +10,8 @@ import { Component } from '@angular/core';
     styles: [
         `
             .layout {
+                display: grid;
+                grid-template-rows: auto 1fr;
                 background-color: var(--color-background);
                 height: 100%;
             }

@@ -134,7 +134,7 @@ export class AddTravelComponent implements OnChanges {
     public handleChangeFile(file: File) {
         this.changeTravelParameters.emit({
             ...this.addTravelParameters,
-            imageFile: file,
+            imgUrl: file.name,
         });
     }
 

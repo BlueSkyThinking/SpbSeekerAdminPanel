@@ -3,7 +3,7 @@ export interface IPoint {
     adminId: number;
     createdDate: number;
     description: string;
-    imgUrlList: [];
+    imgUrlList: string[];
     latitude: number;
     longitude: number;
     name: string;

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IPointParameters } from '../../interfaces/IPointParameters';
+import { IRootState } from '../../../app/interfaces/IRootState';
+import { Store } from '@ngrx/store';
+import { SavePointAction } from '../../actions/SavePointAction';
 
 @Component({
     selector: 'skr-add-point-container',
@@ -19,16 +22,18 @@ export class AddPointContainerComponent {
         latitude: 0,
         longitude: 0,
         name: '',
-        imgUrlList: [],
+        imgFile: [],
         orderNum: 0,
         shortDescription: '',
     };
+
+    constructor(private readonly store: Store<IRootState>) {}
 
     public handleChangePointParameters(value: IPointParameters): void {
         this.addPointParameters = value;
     }
 
     public handleCreate(): void {
-        console.log(this.addPointParameters);
+        this.store.dispatch(new SavePointAction(this.addPointParameters));
     }
 }

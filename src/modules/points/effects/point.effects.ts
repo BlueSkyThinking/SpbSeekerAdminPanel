@@ -10,6 +10,10 @@ import { TryToRemovePointAction } from '../actions/TryToRemovePointAction';
 import { RemovePointAction } from '../actions/RemovePointAction';
 import { RejectLoadPointsAction } from '../actions/RejectLoadPointsAction';
 import { RejectRemovePointAction } from '../actions/RejectRemovePointAction';
+import { AddPointAction } from '../actions/AddPointAction';
+import { SavePointAction } from '../actions/SavePointAction';
+import { RejectSavePointAction } from '../actions/RejectSavePointAction';
+import { ApiImageService } from '../../api/services/api-image.service';
 
 @Injectable()
 export class PointEffects {
@@ -17,7 +21,7 @@ export class PointEffects {
         this.actions$.pipe(
             ofType(LoadPointsAction.type),
             switchMap(() =>
-                this.apiEndpointService.getPoints().pipe(
+                this.apiEndpointPointService.getPoints().pipe(
                     map(points => new SetPointsAction(points)),
                     catchError(() => {
                         this.notificationService.error('Failed to load points');
@@ -28,11 +32,26 @@ export class PointEffects {
         )
     );
 
+    public saveImage$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType<SavePointAction>(SavePointAction.type),
+            switchMap(action =>
+                this.apiEndpointPointService.save(action.point, '').pipe(
+                    map(point => new AddPointAction(point)),
+                    catchError(() => {
+                        this.notificationService.success('Failed to add point');
+                        return of(new RejectSavePointAction());
+                    })
+                )
+            )
+        )
+    );
+
     public removePoint$ = createEffect(() =>
         this.actions$.pipe(
             ofType<TryToRemovePointAction>(TryToRemovePointAction.type),
             switchMap(action =>
-                this.apiEndpointService.remove(action.id).pipe(
+                this.apiEndpointPointService.remove(action.id).pipe(
                     map(() => new RemovePointAction(action.id)),
                     catchError(() => {
                         this.notificationService.error(
@@ -47,7 +66,8 @@ export class PointEffects {
 
     constructor(
         private readonly actions$: Actions,
-        private readonly apiEndpointService: ApiPointService,
+        private readonly apiEndpointPointService: ApiPointService,
+        private readonly apiEndpointImageService: ApiImageService,
         private readonly notificationService: NotificationService
     ) {}
 }

@@ -10,6 +10,9 @@ import { NotificationService } from '../../notification/services/notification.se
 import { TryToRemoveHintAction } from '../actions/TryToRemoveHintAction';
 import { RemoveHintAction } from '../actions/RemoveHintAction';
 import { RejectRemoveHintAction } from '../actions/RejectRemoveHintAction';
+import { SaveHintAction } from '../actions/SaveHintAction';
+import { AddHintAction } from '../actions/AddHintAction';
+import { RejectSaveHintAction } from '../actions/RejectSaveHintAction';
 
 @Injectable()
 export class HintEffects {
@@ -22,6 +25,26 @@ export class HintEffects {
                     catchError(() => {
                         this.notifivationService.error('Failed to load hints');
                         return of(new RejectLoadHintsAction());
+                    })
+                )
+            )
+        )
+    );
+
+    public addHint$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType<SaveHintAction>(SaveHintAction.type),
+            switchMap(action =>
+                this.apiHintEndpointService.saveHint(action.parameters).pipe(
+                    map(hint => {
+                        this.notifivationService.success(
+                            'Hint successfully added'
+                        );
+                        return new AddHintAction(hint);
+                    }),
+                    catchError(() => {
+                        this.notifivationService.error('Failed to add hint');
+                        return of(new RejectSaveHintAction());
                     })
                 )
             )

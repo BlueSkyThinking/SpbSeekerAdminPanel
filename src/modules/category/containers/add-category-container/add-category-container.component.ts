@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ICategoryParameters } from '../../interfaces/ICategoryParameters';
+import { IRootState } from '../../../app/interfaces/IRootState';
+import { Store } from '@ngrx/store';
+import { SaveCategoryAction } from '../../actions/SaveCategoryAction';
 
 @Component({
     selector: 'skr-add-category-container',
@@ -19,11 +22,13 @@ export class AddCategoryContainerComponent {
         imgUrl: '',
     };
 
+    constructor(private readonly store: Store<IRootState>) {}
+
     public handleChangeCategoryParameters(value: ICategoryParameters): void {
         this.addCategoryParameters = value;
     }
 
     public handleCreate(): void {
-        console.log(this.addCategoryParameters);
+        this.store.dispatch(new SaveCategoryAction(this.addCategoryParameters));
     }
 }

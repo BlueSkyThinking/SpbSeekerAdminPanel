@@ -1,8 +1,9 @@
 import { initialState } from '../../app/common/initialState';
 import { SetCategoriesAction } from '../actions/SetCategoriesAction';
 import { RemoveCategoryAction } from '../actions/RemoveCategoryAction';
+import { AddCategoryAction } from '../actions/AddCategoryAction';
 
-type Actions = SetCategoriesAction | RemoveCategoryAction;
+type Actions = SetCategoriesAction | AddCategoryAction | RemoveCategoryAction;
 
 export function categoryReducer(state = initialState, action: Actions) {
     switch (action.type) {
@@ -10,6 +11,12 @@ export function categoryReducer(state = initialState, action: Actions) {
             return {
                 ...state,
                 categories: action.categories,
+            };
+
+        case AddCategoryAction.type:
+            return {
+                ...state,
+                categories: [...state.categories, action.category],
             };
 
         case RemoveCategoryAction.type:

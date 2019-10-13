@@ -145,7 +145,7 @@ export class AddPointComponent {
     public handleChangeFile(file: File): void {
         this.changePointParameters.emit({
             ...this.pointParameters,
-            imgUrlList: [file.name],
+            imgFile: [file],
         });
     }
 

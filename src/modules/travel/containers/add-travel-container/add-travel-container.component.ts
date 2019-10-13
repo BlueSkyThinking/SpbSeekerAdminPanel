@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { ICategory } from '../../../category/interfaces/ICategory';
 import { tap } from 'rxjs/operators';
 import { getCategories } from '../../../category/selectors/getCategories';
+import { SaveTravelAction } from '../../actions/SaveTravelAction';
 
 @Component({
     selector: 'skr-add-travel-container',
@@ -33,7 +34,7 @@ export class AddTravelContainerComponent implements OnDestroy {
                     this.categories = categories;
                     this.addTravelParameters = {
                         name: '',
-                        imageFile: null,
+                        imgUrl: '',
                         description: '',
                         categoryId: String(categories[0].id),
                     };
@@ -47,7 +48,7 @@ export class AddTravelContainerComponent implements OnDestroy {
     }
 
     public handleCreate(): void {
-        console.log(this.addTravelParameters);
+        this.store.dispatch(new SaveTravelAction(this.addTravelParameters));
     }
 
     public ngOnDestroy(): void {

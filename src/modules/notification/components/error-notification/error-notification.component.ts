@@ -25,7 +25,7 @@ import { notificationConfig } from '../../common/notificationConfig';
                 grid-gap: 1rem;
                 grid-template-columns: auto 1fr;
                 background-color: var(--color-surface);
-                padding: 1.5rem;
+                padding: 1.5rem 3.5rem 1.5rem 1.5rem;
                 width: 25rem;
                 align-items: center;
                 border-radius: 0.8rem;

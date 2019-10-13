@@ -4,7 +4,7 @@ export interface IPointParameters {
     latitude: number;
     longitude: number;
     name: string;
-    imgUrlList: string[];
+    imgFile: File[];
     orderNum: number;
     shortDescription: string;
 }

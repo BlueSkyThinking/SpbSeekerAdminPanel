@@ -1,8 +1,9 @@
 import { initialState } from '../../app/common/initialState';
 import { RemoveHintAction } from '../actions/RemoveHintAction';
 import { SetHintsAction } from '../actions/SetHintsAction';
+import { AddHintAction } from '../actions/AddHintAction';
 
-type Actions = SetHintsAction | RemoveHintAction;
+type Actions = SetHintsAction | AddHintAction | RemoveHintAction;
 
 export function hintReducer(state = initialState, action: Actions) {
     switch (action.type) {
@@ -10,6 +11,12 @@ export function hintReducer(state = initialState, action: Actions) {
             return {
                 ...state,
                 hints: action.hints,
+            };
+
+        case AddHintAction.type:
+            return {
+                ...state,
+                hints: [...state.hints, action.hint],
             };
 
         case RemoveHintAction.type:

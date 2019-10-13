@@ -16,8 +16,14 @@ export class ApiPointService {
         return this.httpClient.get<IPoint[]>(this.path);
     }
 
-    public save(pointParameters: IPointParameters) {
-        return this.httpClient.post(this.path, pointParameters);
+    public save(
+        pointParameters: IPointParameters,
+        imgUrl: string
+    ): Observable<IPoint> {
+        return this.httpClient.post<IPoint>(this.path, {
+            ...pointParameters,
+            imgUrlList: [imgUrl],
+        });
     }
 
     public remove(id: IPoint['id']) {

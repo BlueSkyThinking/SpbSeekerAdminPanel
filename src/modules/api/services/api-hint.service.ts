@@ -16,11 +16,11 @@ export class ApiHintService {
         return this.httpClient.get<IHint[]>(this.path);
     }
 
-    public saveHint(hintParameters: IHintParameters) {
-        return this.httpClient.post(this.path, hintParameters);
+    public saveHint(hintParameters: IHintParameters): Observable<IHint> {
+        return this.httpClient.post<IHint>(this.path, hintParameters);
     }
 
     public remove(id: IHint['id']) {
-        return this.httpClient.delete(`s${this.path}/${id}`);
+        return this.httpClient.delete(`${this.path}/${id}`);
     }
 }
