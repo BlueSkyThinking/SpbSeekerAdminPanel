@@ -4,7 +4,8 @@ import { IHint } from '../../interfaces/IHint';
 import { IRootState } from '../../../app/interfaces/IRootState';
 import { select, Store } from '@ngrx/store';
 import { getHints } from '../../selectors/getHints';
-import { RemoveHintAction } from '../../actions/RemoveHintAction';
+import { LoadHintsAction } from '../../actions/LoadHintsAction';
+import { TryToRemoveHintAction } from '../../actions/TryToRemoveHintAction';
 
 @Component({
     selector: 'skr-hint-list-container',
@@ -22,9 +23,10 @@ export class HintListContainerComponent {
 
     constructor(private readonly store: Store<IRootState>) {
         this.hints$ = this.store.pipe(select(getHints));
+        this.store.dispatch(new LoadHintsAction());
     }
 
     public handleRemove(id: IHint['id']) {
-        this.store.dispatch(new RemoveHintAction(id));
+        this.store.dispatch(new TryToRemoveHintAction(id));
     }
 }

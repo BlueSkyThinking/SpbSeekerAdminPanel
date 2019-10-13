@@ -5,8 +5,15 @@ import { HintListItemComponent } from './components/hint-list-item/hint-list-ite
 import { UiComponentsModule } from '../ui-components/ui-components.module';
 import { AddHintParametersContainerComponent } from './containers/add-hint-parameters/add-hint-parameters-container.component';
 import { AddHintComponent } from './components/add-hint/add-hint.component';
+import { EffectsModule } from '@ngrx/effects';
+import { HintEffects } from './effects/hint.effects';
 
 @NgModule({
+    imports: [
+        CommonModule,
+        UiComponentsModule,
+        EffectsModule.forFeature([HintEffects]),
+    ],
     declarations: [
         HintListContainerComponent,
         HintListItemComponent,
@@ -14,6 +21,5 @@ import { AddHintComponent } from './components/add-hint/add-hint.component';
         AddHintComponent,
     ],
     exports: [HintListContainerComponent, AddHintParametersContainerComponent],
-    imports: [CommonModule, UiComponentsModule],
 })
 export class HintsModule {}

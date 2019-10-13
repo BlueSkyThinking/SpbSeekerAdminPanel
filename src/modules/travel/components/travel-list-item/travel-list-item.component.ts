@@ -6,7 +6,7 @@ import { ITravel } from '../../interfaces/ITravel';
     template: `
         <div class="item">
             <div class="image-wrapper">
-                <div class="image"></div>
+                <img class="image" [src]="travelItem.imgUrl" />
             </div>
             <div class="content">
                 <div class="title">{{ travelItem.name }}</div>

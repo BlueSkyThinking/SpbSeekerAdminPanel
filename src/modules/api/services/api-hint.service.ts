@@ -8,7 +8,7 @@ import { IHintParameters } from '../../hints/interfaces/IHintParameters';
     providedIn: 'root',
 })
 export class ApiHintService {
-    private readonly path = '/api/v1/hints';
+    private readonly path = '/api/v1/hint';
 
     constructor(private readonly httpClient: HttpClient) {}
 

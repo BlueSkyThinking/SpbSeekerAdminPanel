@@ -6,7 +6,7 @@ import { IPoint } from '../../interfaces/IPoint';
     template: `
         <div class="item">
             <div class="image-wrapper">
-                <div class="image"></div>
+                <img class="image" [src]="point.imgUrlList[0]" />
             </div>
             <div class="content">
                 <div class="title">{{ point.name }}</div>
