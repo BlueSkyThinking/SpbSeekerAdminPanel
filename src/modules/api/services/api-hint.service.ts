@@ -16,8 +16,14 @@ export class ApiHintService {
         return this.httpClient.get<IHint[]>(this.path);
     }
 
-    public saveHint(hintParameters: IHintParameters): Observable<IHint> {
-        return this.httpClient.post<IHint>(this.path, hintParameters);
+    public saveHint(
+        hintParameters: IHintParameters,
+        imageUrl: string
+    ): Observable<IHint> {
+        return this.httpClient.post<IHint>(this.path, {
+            ...hintParameters,
+            imgUrl: imageUrl,
+        });
     }
 
     public remove(id: IHint['id']) {

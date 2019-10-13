@@ -22,7 +22,7 @@ export class AddHintParametersContainerComponent {
         description: '',
         shortDescription: '',
         hintAction: HintAction.COMPASS,
-        imgUrl: '',
+        imgFiles: [],
     };
 
     constructor(private readonly store: Store<IRootState>) {}

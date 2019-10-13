@@ -114,7 +114,7 @@ export class AddHintComponent {
     public handleChangeFile(file: File): void {
         this.changePointParameters.emit({
             ...this.hintParameters,
-            imgUrl: file.name,
+            imgFiles: [file],
         });
     }
 

@@ -16,8 +16,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
     },
     { path: 'login', component: LoginContainerComponent },
-    // { path: '**', component: LoginContainerComponent },
-    { path: '**', component: AdminPanelLayoutContainerComponent },
+    { path: '**', component: LoginContainerComponent },
 ];
 
 @NgModule({

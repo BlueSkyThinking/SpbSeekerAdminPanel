@@ -35,18 +35,22 @@ export class HintEffects {
         this.actions$.pipe(
             ofType<SaveHintAction>(SaveHintAction.type),
             switchMap(action =>
-                this.apiHintEndpointService.saveHint(action.parameters).pipe(
-                    map(hint => {
-                        this.notifivationService.success(
-                            'Hint successfully added'
-                        );
-                        return new AddHintAction(hint);
-                    }),
-                    catchError(() => {
-                        this.notifivationService.error('Failed to add hint');
-                        return of(new RejectSaveHintAction());
-                    })
-                )
+                this.apiHintEndpointService
+                    .saveHint(action.parameters, '')
+                    .pipe(
+                        map(hint => {
+                            this.notifivationService.success(
+                                'Hint successfully added'
+                            );
+                            return new AddHintAction(hint);
+                        }),
+                        catchError(() => {
+                            this.notifivationService.error(
+                                'Failed to add hint'
+                            );
+                            return of(new RejectSaveHintAction());
+                        })
+                    )
             )
         )
     );

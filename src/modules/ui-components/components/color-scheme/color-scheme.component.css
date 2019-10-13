@@ -100,7 +100,7 @@
 
     --color-primary-shadow-hover: rgba(43, 105, 132, 0.4);
 
-    --color-background: var(--color-key-f);
+    --color-background: #e5e5e5;
     --color-toggle-background: #ecf1f7;
 
     --color-surface: var(--color-key-f);
