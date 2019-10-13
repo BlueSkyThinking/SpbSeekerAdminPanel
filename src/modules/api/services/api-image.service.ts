@@ -10,10 +10,12 @@ export class ApiImageService {
 
     constructor(private readonly httpClient: HttpClient) {}
 
-    public uploadImage(file: File): Observable<string> {
+    public uploadImage(file: File[]): Observable<string> {
         const uploadData = new FormData();
-        uploadData.append('image', file);
+        uploadData.append('image', file[0]);
 
-        return this.httpClient.post<string>(this.path, uploadData);
+        return this.httpClient.post(this.path, uploadData, {
+            responseType: 'text',
+        });
     }
 }

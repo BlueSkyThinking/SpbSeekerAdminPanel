@@ -33,7 +33,7 @@ export class AddPointContainerComponent {
         this.addPointParameters = value;
     }
 
-    public handleCreate(): void {
+    public async handleCreate() {
         this.store.dispatch(new SavePointAction(this.addPointParameters));
     }
 }
