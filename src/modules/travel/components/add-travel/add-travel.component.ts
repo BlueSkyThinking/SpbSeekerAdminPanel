@@ -6,7 +6,7 @@ import {
     Output,
     SimpleChanges,
 } from '@angular/core';
-import { IAddTravelParameters } from '../../interfaces/IAddTravelParameters';
+import { ITravelParameters } from '../../interfaces/ITravelParameters';
 import { ICategory } from '../../../category/interfaces/ICategory';
 import { ISelectOption } from '../../../ui-components/types/ISelectOption';
 
@@ -90,11 +90,11 @@ import { ISelectOption } from '../../../ui-components/types/ISelectOption';
     ],
 })
 export class AddTravelComponent implements OnChanges {
-    @Input() public addTravelParameters: IAddTravelParameters;
+    @Input() public addTravelParameters: ITravelParameters;
     @Input() public categories: ICategory[];
 
     @Output() public changeTravelParameters: EventEmitter<
-        IAddTravelParameters
+        ITravelParameters
     > = new EventEmitter();
     @Output() public create: EventEmitter<void> = new EventEmitter();
 

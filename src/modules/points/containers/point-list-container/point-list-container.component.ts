@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPoint } from '../../interfaces/IPoint';
 import { IRootState } from '../../../app/interfaces/IRootState';
 import { select, Store } from '@ngrx/store';
 import { getPoints } from '../../selectors/getPoints';
 import { RemovePointAction } from '../../actions/RemovePointAction';
+import { LoadPointsAction } from '../../actions/LoadPointsAction';
+import { TryToRemovePointAction } from '../../actions/TryToRemovePointAction';
 
 @Component({
     selector: 'skr-point-list-container',
@@ -17,14 +19,18 @@ import { RemovePointAction } from '../../actions/RemovePointAction';
     `,
     styles: [],
 })
-export class PointListContainerComponent {
+export class PointListContainerComponent implements OnInit {
     public points$: Observable<IPoint[]>;
 
     constructor(private readonly store: Store<IRootState>) {
         this.points$ = this.store.pipe(select(getPoints));
     }
 
+    public ngOnInit(): void {
+        this.store.dispatch(new LoadPointsAction());
+    }
+
     public handleRemove(id: IPoint['id']): void {
-        this.store.dispatch(new RemovePointAction(id));
+        this.store.dispatch(new TryToRemovePointAction(id));
     }
 }

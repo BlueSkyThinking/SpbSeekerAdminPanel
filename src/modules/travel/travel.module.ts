@@ -5,6 +5,8 @@ import { TravelListItemComponent } from './components/travel-list-item/travel-li
 import { UiComponentsModule } from '../ui-components/ui-components.module';
 import { AddTravelContainerComponent } from './containers/add-travel-container/add-travel-container.component';
 import { AddTravelComponent } from './components/add-travel/add-travel.component';
+import { EffectsModule } from '@ngrx/effects';
+import { TravelEffects } from './effects/travel.effects';
 
 @NgModule({
     declarations: [
@@ -13,7 +15,11 @@ import { AddTravelComponent } from './components/add-travel/add-travel.component
         AddTravelContainerComponent,
         AddTravelComponent,
     ],
-    imports: [CommonModule, UiComponentsModule],
+    imports: [
+        CommonModule,
+        UiComponentsModule,
+        EffectsModule.forFeature([TravelEffects]),
+    ],
     exports: [TravelListContainersComponent, AddTravelContainerComponent],
 })
 export class TravelModule {}

@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { IAddTravelParameters } from '../../interfaces/IAddTravelParameters';
+import { ITravelParameters } from '../../interfaces/ITravelParameters';
 import { IRootState } from '../../../app/interfaces/IRootState';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -20,7 +20,7 @@ import { getCategories } from '../../../category/selectors/getCategories';
     styles: [],
 })
 export class AddTravelContainerComponent implements OnDestroy {
-    public addTravelParameters: IAddTravelParameters;
+    public addTravelParameters: ITravelParameters;
     public categories: ICategory[];
 
     public categorySubscription: Subscription;
@@ -42,7 +42,7 @@ export class AddTravelContainerComponent implements OnDestroy {
             .subscribe();
     }
 
-    public handleChangeTravelParameters(value: IAddTravelParameters): void {
+    public handleChangeTravelParameters(value: ITravelParameters): void {
         this.addTravelParameters = value;
     }
 

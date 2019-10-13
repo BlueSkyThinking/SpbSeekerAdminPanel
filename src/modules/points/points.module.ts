@@ -5,6 +5,8 @@ import { PointListItemComponent } from './components/point-list-item/point-list-
 import { UiComponentsModule } from '../ui-components/ui-components.module';
 import { AddPointComponent } from './components/add-point/add-point.component';
 import { AddPointContainerComponent } from './containers/add-point-container/add-point-container.component';
+import { EffectsModule } from '@ngrx/effects';
+import { PointEffects } from './effects/point.effects';
 
 @NgModule({
     declarations: [
@@ -13,7 +15,11 @@ import { AddPointContainerComponent } from './containers/add-point-container/add
         AddPointComponent,
         AddPointContainerComponent,
     ],
-    imports: [CommonModule, UiComponentsModule],
+    imports: [
+        CommonModule,
+        UiComponentsModule,
+        EffectsModule.forFeature([PointEffects]),
+    ],
     exports: [PointListContainerComponent, AddPointContainerComponent],
 })
 export class PointsModule {}

@@ -1,4 +1,4 @@
-export interface IAddTravelParameters {
+export interface ITravelParameters {
     name: string;
     imageFile: File;
     description: string;
