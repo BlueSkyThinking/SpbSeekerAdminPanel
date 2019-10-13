@@ -19,14 +19,11 @@ import { TryToRemovePointAction } from '../../actions/TryToRemovePointAction';
     `,
     styles: [],
 })
-export class PointListContainerComponent implements OnInit {
+export class PointListContainerComponent {
     public points$: Observable<IPoint[]>;
 
     constructor(private readonly store: Store<IRootState>) {
         this.points$ = this.store.pipe(select(getPoints));
-    }
-
-    public ngOnInit(): void {
         this.store.dispatch(new LoadPointsAction());
     }
 

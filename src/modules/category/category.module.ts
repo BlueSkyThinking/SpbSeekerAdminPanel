@@ -5,8 +5,15 @@ import { CategoryListItemComponent } from './components/category-list-item/categ
 import { UiComponentsModule } from '../ui-components/ui-components.module';
 import { AddCategoryContainerComponent } from './containers/add-category-container/add-category-container.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { EffectsModule } from '@ngrx/effects';
+import { CategoryEffects } from './effects/category.effects';
 
 @NgModule({
+    imports: [
+        CommonModule,
+        UiComponentsModule,
+        EffectsModule.forFeature([CategoryEffects]),
+    ],
     declarations: [
         CategoryListContainerComponent,
         CategoryListItemComponent,
@@ -14,6 +21,5 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
         AddCategoryComponent,
     ],
     exports: [CategoryListContainerComponent, AddCategoryContainerComponent],
-    imports: [CommonModule, UiComponentsModule],
 })
 export class CategoryModule {}

@@ -4,7 +4,8 @@ import { ICategory } from '../../interfaces/ICategory';
 import { IRootState } from '../../../app/interfaces/IRootState';
 import { select, Store } from '@ngrx/store';
 import { getCategories } from '../../selectors/getCategories';
-import { RemoveCategoryAction } from '../../actions/RemoveCategoryAction';
+import { LoadCategoriesAction } from '../../actions/LoadCategoriesAction';
+import { TryToRemoveCategoryAction } from '../../actions/TryToRemoveCategoryAction';
 
 @Component({
     selector: 'skr-category-list-container',
@@ -22,9 +23,10 @@ export class CategoryListContainerComponent {
 
     constructor(private readonly store: Store<IRootState>) {
         this.categories$ = this.store.pipe(select(getCategories));
+        this.store.dispatch(new LoadCategoriesAction());
     }
 
     public handleRemove(id: ICategory['id']): void {
-        this.store.dispatch(new RemoveCategoryAction(id));
+        this.store.dispatch(new TryToRemoveCategoryAction(id));
     }
 }

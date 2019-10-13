@@ -6,7 +6,7 @@ import { ICategory } from '../../interfaces/ICategory';
     template: `
         <div class="item">
             <div class="image-wrapper">
-                <div class="image"></div>
+                <img class="image" [src]="category.imgUrl" />
             </div>
             <div class="content">
                 <div class="title">{{ category.name }}</div>

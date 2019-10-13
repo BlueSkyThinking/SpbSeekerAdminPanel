@@ -6,7 +6,7 @@ import { IHint } from '../../interfaces/IHint';
     template: `
         <div class="item">
             <div class="image-wrapper">
-                <div class="image"></div>
+                <img class="image" [src]="hint.imgUrl" />
             </div>
             <div class="content">
                 <div class="title">{{ hint.name }}</div>

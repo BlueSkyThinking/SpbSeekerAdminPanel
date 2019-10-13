@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IHint } from '../../hints/interfaces/IHint';
 import { ICategoryParameters } from '../../category/interfaces/ICategoryParameters';
+import { ICategory } from '../../category/interfaces/ICategory';
 
 @Injectable({
     providedIn: 'root',
@@ -12,15 +12,15 @@ export class ApiCategoryService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public getHints(): Observable<IHint[]> {
-        return this.httpClient.get<IHint[]>(this.path);
+    public getHints(): Observable<ICategory[]> {
+        return this.httpClient.get<ICategory[]>(this.path);
     }
 
     public getSave(categoryParameters: ICategoryParameters) {
         return this.httpClient.post(this.path, categoryParameters);
     }
 
-    public remove(id: IHint['id']) {
+    public remove(id: ICategory['id']) {
         return this.httpClient.delete(`${this.path}/${id}`);
     }
 }
